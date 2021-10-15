@@ -21,43 +21,44 @@ namespace WorkAutomation
             get;
             set;
         }
-
-        IAutomationService cLoginService;
+        //IAutomationService cLoginService;
         IAutomationService cDemoService;
-
         public MainForm()
         {
-            InitializeComponent();
-            driver = new ChromeDriver();
-            //cLoginService = new LoginService(this);
-            cDemoService = new DemoService(this);
+            InitializeComponent();          
+        }
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            //doService(cLoginService);       
+        }
+        private void btnDemo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                driver = new ChromeDriver(this.txtWebDriverDir.Text);
+                cDemoService = new DemoService(this);
+                doService(cDemoService);
+            }
+            catch (Exception ex)
+            {
+                this.txtLog.AppendText(ex.Message + Environment.NewLine);
+            }
+        }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
             setDefaultValue();
         }
         private void setDefaultValue()
         {
             this.txtServerUrl.Text = "http://demo.guru99.com/popup.php";
+            this.txtWebDriverDir.Text = "D:\\selenium";
+            this.txtEmail.Text = "test3486rbwp@gmail.com";
             //this.txtId.Text = "id";
             //this.txtPassword.Text = "password";
         }
-
-        private void setDefaultSetting()
-        {
-
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            //doService(cLoginService);       
-        }
-
         private void doService(IAutomationService cAutoMationService)
         {
             cAutoMationService.AutoService();
-        }
-
-        private void btnDemo_Click(object sender, EventArgs e)
-        {
-            doService(cDemoService);
         }
     }
 }

@@ -38,7 +38,7 @@ namespace WorkAutomation.Service
             var webElements = driver.FindElements(By.TagName("td"));
             foreach(var webElement in webElements)
             {
-                Console.WriteLine(webElement.Text);
+                mainForm.txtLog.AppendText(webElement.Text+ Environment.NewLine);
             }
             /*
             mainForm.driver.FindElement(By.Id("userId")).Click();

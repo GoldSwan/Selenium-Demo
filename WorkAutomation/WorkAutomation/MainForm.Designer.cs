@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gbxAccessInfo = new System.Windows.Forms.GroupBox();
+            this.txtWebDriverDir = new System.Windows.Forms.TextBox();
+            this.lblWebDriverDir = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -49,6 +51,8 @@
             // 
             // gbxAccessInfo
             // 
+            this.gbxAccessInfo.Controls.Add(this.txtWebDriverDir);
+            this.gbxAccessInfo.Controls.Add(this.lblWebDriverDir);
             this.gbxAccessInfo.Controls.Add(this.txtEmail);
             this.gbxAccessInfo.Controls.Add(this.lblEmail);
             this.gbxAccessInfo.Controls.Add(this.txtPassword);
@@ -59,10 +63,26 @@
             this.gbxAccessInfo.Controls.Add(this.txtServerUrl);
             this.gbxAccessInfo.Location = new System.Drawing.Point(12, 12);
             this.gbxAccessInfo.Name = "gbxAccessInfo";
-            this.gbxAccessInfo.Size = new System.Drawing.Size(731, 93);
+            this.gbxAccessInfo.Size = new System.Drawing.Size(731, 120);
             this.gbxAccessInfo.TabIndex = 0;
             this.gbxAccessInfo.TabStop = false;
             this.gbxAccessInfo.Text = "Access Infomation";
+            // 
+            // txtWebDriverDir
+            // 
+            this.txtWebDriverDir.Location = new System.Drawing.Point(101, 91);
+            this.txtWebDriverDir.Name = "txtWebDriverDir";
+            this.txtWebDriverDir.Size = new System.Drawing.Size(242, 21);
+            this.txtWebDriverDir.TabIndex = 10;
+            // 
+            // lblWebDriverDir
+            // 
+            this.lblWebDriverDir.Location = new System.Drawing.Point(6, 84);
+            this.lblWebDriverDir.Name = "lblWebDriverDir";
+            this.lblWebDriverDir.Size = new System.Drawing.Size(89, 33);
+            this.lblWebDriverDir.TabIndex = 9;
+            this.lblWebDriverDir.Text = "WebDriver \r\nDirectory";
+            this.lblWebDriverDir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtEmail
             // 
@@ -132,7 +152,7 @@
             // 
             this.gbxAutoExecute.Controls.Add(this.btnDemo);
             this.gbxAutoExecute.Controls.Add(this.btnLogin);
-            this.gbxAutoExecute.Location = new System.Drawing.Point(12, 127);
+            this.gbxAutoExecute.Location = new System.Drawing.Point(12, 138);
             this.gbxAutoExecute.Name = "gbxAutoExecute";
             this.gbxAutoExecute.Size = new System.Drawing.Size(731, 76);
             this.gbxAutoExecute.TabIndex = 1;
@@ -174,8 +194,8 @@
             this.txtLog.Location = new System.Drawing.Point(6, 20);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
-            this.txtLog.Size = new System.Drawing.Size(716, 190);
-            this.txtLog.TabIndex = 0;
+            this.txtLog.Size = new System.Drawing.Size(719, 190);
+            this.txtLog.TabIndex = 9;
             // 
             // MainForm
             // 
@@ -187,6 +207,7 @@
             this.Controls.Add(this.gbxAccessInfo);
             this.Name = "MainForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.gbxAccessInfo.ResumeLayout(false);
             this.gbxAccessInfo.PerformLayout();
             this.gbxAutoExecute.ResumeLayout(false);
@@ -211,7 +232,9 @@
         private System.Windows.Forms.Label lblEmail;
         public System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtLog;
+        public System.Windows.Forms.TextBox txtLog;
+        public System.Windows.Forms.TextBox txtWebDriverDir;
+        private System.Windows.Forms.Label lblWebDriverDir;
     }
 }
 
