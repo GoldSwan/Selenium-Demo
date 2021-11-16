@@ -27,10 +27,7 @@ namespace WorkAutomation
         {
             InitializeComponent();          
         }
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            //doService(cLoginService);       
-        }
+
         private void btnDemo_Click(object sender, EventArgs e)
         {
             try
@@ -53,12 +50,24 @@ namespace WorkAutomation
             this.txtServerUrl.Text = "http://demo.guru99.com/popup.php";
             this.txtWebDriverDir.Text = "D:\\selenium";
             this.txtEmail.Text = "test3486rbwp@gmail.com";
-            //this.txtId.Text = "id";
-            //this.txtPassword.Text = "password";
         }
         private void doService(IAutomationService cAutoMationService)
         {
             cAutoMationService.AutoService();
+        }
+
+        private void btnExcelDirectoryBrowse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                txtExcelDirectory.Text = dlg.FileName;
+            }
+            else
+            {
+                txtExcelDirectory.Text = string.Empty;
+            }
+            
         }
     }
 }
